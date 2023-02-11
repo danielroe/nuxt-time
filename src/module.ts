@@ -2,8 +2,8 @@ import { fileURLToPath } from 'node:url'
 import { defineNuxtModule, addComponentsDir } from '@nuxt/kit'
 import { join } from 'pathe'
 
-export interface ModuleOptions {
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface ModuleOptions {}
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
