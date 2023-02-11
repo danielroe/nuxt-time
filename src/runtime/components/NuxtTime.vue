@@ -1,12 +1,31 @@
 <script setup lang='ts'>
 import { computed, getCurrentInstance, useHead } from '#imports'
 
-interface NuxtTimeProps extends Intl.DateTimeFormatOptions {
-  locale?: string;
+const props = defineProps<{
+  locale?: string
   datetime: string | number | Date
-}
+  localeMatcher?: 'best fit' | 'lookup'
+  weekday?: 'long' | 'short' | 'narrow'
+  era?: 'long' | 'short' | 'narrow'
+  year?: 'numeric' | '2-digit'
+  month?: 'numeric' | '2-digit' | 'long' | 'short' | 'narrow'
+  day?: 'numeric' | '2-digit'
+  hour?: 'numeric' | '2-digit'
+  minute?: 'numeric' | '2-digit'
+  second?: 'numeric' | '2-digit'
+  timeZoneName?: 'short' | 'long' | 'shortOffset' | 'longOffset' | 'shortGeneric' | 'longGeneric'
+  formatMatcher?: 'best fit' | 'basic'
+  hour12?: boolean
+  timeZone?: string
 
-const props = defineProps<NuxtTimeProps>()
+  calendar?: string
+  dayPeriod?: 'narrow' | 'short' | 'long'
+  numberingSystem?: string
+
+  dateStyle?: 'full' | 'long' | 'medium' | 'short'
+  timeStyle?: 'full' | 'long' | 'medium' | 'short'
+  hourCycle?: 'h11' | 'h12' | 'h23' | 'h24'
+}>()
 
 const renderedDate = getCurrentInstance()?.vnode.el?.getAttribute('datetime')
 const locale = getCurrentInstance()?.vnode.el?.getAttribute('data-locale')
