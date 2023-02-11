@@ -1,6 +1,4 @@
-import { fileURLToPath } from 'node:url'
-import { defineNuxtModule, addComponentsDir } from '@nuxt/kit'
-import { join } from 'pathe'
+import { defineNuxtModule, createResolver, addComponentsDir } from '@nuxt/kit'
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ModuleOptions {}
@@ -11,10 +9,9 @@ export default defineNuxtModule<ModuleOptions>({
     name: 'nuxt-time',
   },
   async setup (_options, nuxt) {
-    const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
-    nuxt.options.build.transpile.push(runtimeDir)
+    const resolver = createResolver(import.meta.url)
 
     // Add <NuxtTime> component
-    addComponentsDir({ path: join(runtimeDir, 'components') })
+    addComponentsDir({ path: resolver.resolve('./runtime/components') })
   },
 })
