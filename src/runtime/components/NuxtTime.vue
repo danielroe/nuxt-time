@@ -28,7 +28,7 @@ const props = defineProps<{
 }>()
 
 const renderedDate = getCurrentInstance()?.vnode.el?.getAttribute('datetime')
-const locale = getCurrentInstance()?.vnode.el?.getAttribute('locale')
+const locale = getCurrentInstance()?.vnode.el?.getAttribute('data-locale')
 
 const date = computed(() => {
   if (renderedDate) return new Date(renderedDate)
