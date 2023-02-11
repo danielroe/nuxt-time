@@ -39,6 +39,7 @@ if (process.server) {
   useHead({
     script: [{
       tagPosition: 'bodyClose',
+      key: 'nuxt-time',
       innerHTML: `
         document.querySelectorAll('[data-n-time]').forEach(el => {
           const date = new Date(parseInt(el.getAttribute('datetime')));
