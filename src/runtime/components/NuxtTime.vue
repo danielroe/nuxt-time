@@ -27,13 +27,19 @@ const props = defineProps<{
   hourCycle?: 'h11' | 'h12' | 'h23' | 'h24'
 }>()
 
-const datetime = getCurrentInstance()?.vnode.el?.getAttribute('datetime')
+const renderedDate = getCurrentInstance()?.vnode.el?.getAttribute('datetime')
 const locale = getCurrentInstance()?.vnode.el?.getAttribute('locale')
 
-const formatter = new Intl.DateTimeFormat(locale ?? props.locale, props)
-const formattedDate = computed(() => formatter.format(datetime ?? props.datetime ? new Date(parseInt(datetime ?? props.datetime)) : new Date()))
+const date = computed(() => {
+  if (renderedDate) return new Date(renderedDate)
+  if (!props.datetime) return new Date()
+  return new Date(props.datetime)
+})
 
-const isServer = process.server
+const formattedDate = computed(() => new Intl.DateTimeFormat(locale ?? props.locale, props).format(date.value))
+const isoDate = computed(() => date.value.toISOString())
+
+const dataset = process.server ? Object.fromEntries(Object.entries(props).map(([k, v]) => [`data-${k}`, v])) : {}
 
 if (process.server) {
   useHead({
@@ -42,8 +48,13 @@ if (process.server) {
       key: 'nuxt-time',
       innerHTML: `
         document.querySelectorAll('[data-n-time]').forEach(el => {
-          const date = new Date(parseInt(el.getAttribute('datetime')));
-          const options = Object.fromEntries(el.getAttributeNames().map(name => [name, el.getAttribute(name)]));
+          const date = new Date(el.getAttribute('datetime'));
+          const options = {};
+          for (const name of el.getAttributeNames()) {
+            if (name.startsWith('data-')) {
+              options[name.slice(5)] = el.getAttribute(name);
+            }
+          }
 
           const formatter = new Intl.DateTimeFormat(options.locale, options);
           el.textContent = formatter.format(date)
@@ -55,5 +66,5 @@ if (process.server) {
 </script>
 
 <template>
-  <time data-n-time v-bind="isServer ? props : {}" :datetime="props.datetime?.toString()" >{{ formattedDate }}</time>
+  <time data-n-time v-bind="dataset" :datetime="isoDate" >{{ formattedDate }}</time>
 </template>

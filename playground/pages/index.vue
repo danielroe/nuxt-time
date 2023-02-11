@@ -9,6 +9,8 @@ const locale = process.server ? 'en-US' : 'en-GB'
   <div>
     <NuxtTime :datetime="Date.now()" second="numeric" month="long" day="numeric" :locale="locale" />
     <br>
-    <NuxtTime :datetime="Date.now()" second="numeric" month="long" day="numeric" />
+    <NuxtTime :datetime="new Date()" second="numeric" month="long" day="numeric" />
+    <br>
+    <NuxtTime datetime="2023-02-11T08:24:08.396Z" month="long" day="numeric" />
   </div>
 </template>
