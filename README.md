@@ -18,20 +18,20 @@
 
 ## Installation
 
-1. Install and add `nuxt-time` to your `nuxt.config`.
+Install and add `nuxt-time` to your `nuxt.config`.
 
-   ```bash
-   # Whichever matches your package manager
-   pnpm add -D nuxt-time
-   npm install -D nuxt-time
-   yarn add -D nuxt-time
-   ```
+```bash
+# Whichever matches your package manager
+pnpm add -D nuxt-time
+npm install -D nuxt-time
+yarn add -D nuxt-time
+```
 
-   ```js
-   export default defineNuxtConfig({
-     modules: ['nuxt-time'],
-   })
-   ```
+```js
+export default defineNuxtConfig({
+  modules: ['nuxt-time'],
+})
+```
 
 ## Usage
 
