@@ -1,7 +1,7 @@
 <script setup lang='ts'>
 import { computed, getCurrentInstance, useHead } from '#imports'
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   locale?: string
   datetime: string | number | Date
   localeMatcher?: 'best fit' | 'lookup'
@@ -25,7 +25,9 @@ const props = defineProps<{
   dateStyle?: 'full' | 'long' | 'medium' | 'short'
   timeStyle?: 'full' | 'long' | 'medium' | 'short'
   hourCycle?: 'h11' | 'h12' | 'h23' | 'h24'
-}>()
+}>(), {
+  hour12: undefined
+})
 
 const renderedDate = getCurrentInstance()?.vnode.el?.getAttribute('datetime')
 const locale = getCurrentInstance()?.vnode.el?.getAttribute('data-locale')
@@ -39,9 +41,14 @@ const date = computed(() => {
 const formattedDate = computed(() => new Intl.DateTimeFormat(locale ?? props.locale, props).format(date.value))
 const isoDate = computed(() => date.value.toISOString())
 
-const dataset = process.server ? Object.fromEntries(Object.entries(props).map(([k, v]) => [`data-${k}`, v])) : {}
+const dataset: Record<string, any> = {}
 
 if (process.server) {
+  for (const prop in props) {
+    if (prop !== 'datetime') {
+      dataset[`data-${prop}`] = props[prop]
+    }
+  }
   useHead({
     script: [{
       tagPosition: 'bodyClose',
