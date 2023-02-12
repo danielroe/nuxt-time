@@ -26,8 +26,11 @@ jobs:
       - name: 🚧 Set up project
         run: pnpm dev:prepare
 
-      - name: 🔠 Lint project
+      - name: 🔠 Fix lint errors
         run: pnpm run lint
+
+      - name: 🧪 Update snapshots
+        run: pnpm test -u
 
       - uses: autofix-ci/action@8bc06253bec489732e5f9c52884c7cace15c0160
 
