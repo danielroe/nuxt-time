@@ -14,7 +14,7 @@ describe('nuxt-time', async () => {
     const html = await $fetch('/')
     const snap = html.match(/<time[^>]*data-testid="fixed"[^>]*>([^<]*)<\/time>/)?.[0]
     expect(snap).toContain(
-      '<time data-n-time data-month=\\"long\\" data-day=\\"numeric\\" datetime=\\"2023-02-11T08:24:08.396Z\\" data-testid=\\"fixed\\">'
+      '<time data-n-time data-month="long" data-day="numeric" datetime="2023-02-11T08:24:08.396Z" data-testid="fixed">'
     )
   })
 
