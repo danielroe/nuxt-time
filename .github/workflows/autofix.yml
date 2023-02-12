@@ -1,0 +1,33 @@
+name: autofix.ci  # needed to securely identify the workflow
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  autofix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: corepack enable
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "pnpm"
+
+      - name: 📦 Install dependencies
+        run: pnpm install
+
+      - name: 🚧 Set up project
+        run: pnpm dev:prepare
+
+      - name: 🔠 Lint project
+        run: pnpm run lint
+
+      - uses: autofix-ci/action@8bc06253bec489732e5f9c52884c7cace15c0160
+
