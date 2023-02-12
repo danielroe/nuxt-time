@@ -38,7 +38,30 @@ const date = computed(() => {
   return new Date(props.datetime)
 })
 
-const formattedDate = computed(() => new Intl.DateTimeFormat(locale ?? props.locale, props).format(date.value))
+const formatter = computed(() => {
+  return new Intl.DateTimeFormat(locale ?? props.locale, {
+    localeMatcher: props.localeMatcher,
+    weekday: props.weekday,
+    era: props.era,
+    year: props.year,
+    month: props.month,
+    day: props.day,
+    hour: props.hour,
+    minute: props.minute,
+    second: props.second,
+    timeZoneName: props.timeZoneName,
+    formatMatcher: props.formatMatcher,
+    hour12: props.hour12,
+    timeZone: props.timeZone,
+    calendar: props.calendar,
+    dayPeriod: props.dayPeriod,
+    numberingSystem: props.numberingSystem,
+    dateStyle: props.dateStyle,
+    timeStyle: props.timeStyle,
+    hourCycle: props.hourCycle,
+  })
+})
+const formattedDate = computed(() => formatter.value.format(date.value))
 const isoDate = computed(() => date.value.toISOString())
 
 const dataset: Record<string, any> = {}
@@ -46,7 +69,7 @@ const dataset: Record<string, any> = {}
 if (process.server) {
   for (const prop in props) {
     if (prop !== 'datetime') {
-      dataset[`data-${prop}`] = props[prop]
+      dataset[`data-${prop}`] = props?.[prop as keyof typeof props]
     }
   }
   useHead({

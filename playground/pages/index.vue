@@ -1,16 +1,27 @@
 <script setup>
 if (process.client) {
-  await new Promise(resolve => setTimeout(resolve, 2000))
+  await new Promise(resolve => setTimeout(resolve, process.test ? 0 : 500))
 }
-const locale = process.server ? 'en-US' : 'en-GB'
+const locale = ref()
+const switchLocale = () => {
+  locale.value = locale.value !== 'fr' ? 'fr' : 'en-GB'
+}
+const date = ref('2023-02-11T08:24:08.396Z')
+const changeDate = () => {
+  date.value = Date.now()
+}
 </script>
 
 <template>
   <div>
-    <NuxtTime :datetime="Date.now()" second="numeric" month="long" day="numeric" :locale="locale" />
+    <NuxtTime :locale="locale" data-testid="switchable" :datetime="date" second="numeric" month="long" day="numeric" />
     <br>
-    <NuxtTime :datetime="new Date()" second="numeric" month="long" day="numeric" />
+    <NuxtTime :locale="locale" data-testid="present" :datetime="new Date()" second="numeric" month="long" day="numeric" />
     <br>
-    <NuxtTime data-test-fixed datetime="2023-02-11T08:24:08.396Z" month="long" day="numeric" :locale="locale" />
+    <NuxtTime :locale="locale" data-testid="fixed" datetime="2023-02-11T08:24:08.396Z" month="long" day="numeric" />
+    <br>
+    <button @click="switchLocale">Switch locale</button>
+    <br>
+    <button @click="changeDate">Update time</button>
   </div>
 </template>
