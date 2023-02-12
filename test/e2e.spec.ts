@@ -12,9 +12,9 @@ await setup({
 describe('nuxt-time', async () => {
   it('ssr', async () => {
     const html = await $fetch('/')
-    const snap = html.match(/<time[^>]*data-test-fixed[^>]*>([^<]*)<\/time>/)?.[0]
+    const snap = html.match(/<time[^>]*data-testid="fixed"[^>]*>([^<]*)<\/time>/)?.[0]
     expect(snap).toMatchInlineSnapshot(
-      '"<time data-n-time data-locale=\\"en-US\\" data-month=\\"long\\" data-day=\\"numeric\\" datetime=\\"2023-02-11T08:24:08.396Z\\" data-test-fixed>February 11</time>"'
+      '"<time data-n-time data-month=\\"long\\" data-day=\\"numeric\\" datetime=\\"2023-02-11T08:24:08.396Z\\" data-testid=\\"fixed\\">11 February</time>"'
     )
   })
 
@@ -26,7 +26,7 @@ describe('nuxt-time', async () => {
   })
 
   it('has no hydration errors on the client', async () => {
-    const page = await createPage()
+    const page = await createPage(undefined, { locale: 'en-GB' })
     const logs: string[] = []
 
     page.on('console', event => {
@@ -37,7 +37,17 @@ describe('nuxt-time', async () => {
 
     await page.goto(url('/'), { waitUntil: 'networkidle' })
 
+    // expect(await page.getByTestId('switchable').innerText()).toMatchInlineSnapshot('"11 February at 8"')
+    // expect(await page.getByTestId('fixed').innerText()).toMatchInlineSnapshot('"11 February"')
+
+    // await page.getByText('Switch locale').click()
+    // expect(await page.getByTestId('switchable').innerText()).toMatchInlineSnapshot('"11 février à 8"')
+    // expect(await page.getByTestId('fixed').innerText()).toMatchInlineSnapshot('"11 février"')
+
+    // await page.getByText('Update time').click()
+    // expect(await page.getByTestId('fixed').innerText()).toMatchInlineSnapshot('"11 février"')
+
     // No hydration errors
-    expect(logs.length).toBe(0)
+    expect(logs.join('')).toMatchInlineSnapshot('""')
   })
 })
