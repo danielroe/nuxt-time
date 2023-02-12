@@ -13,9 +13,7 @@ describe('nuxt-time', async () => {
   it('ssr', async () => {
     const html = await $fetch('/')
     const snap = html.match(/<time[^>]*data-test-fixed[^>]*>([^<]*)<\/time>/)?.[0]
-    expect(snap).toMatchInlineSnapshot(
-      '"<time data-n-time data-month=\\"long\\" data-day=\\"numeric\\" data-locale=\\"en-US\\" datetime=\\"2023-02-11T08:24:08.396Z\\" data-test-fixed>February 11</time>"'
-    )
+    expect(snap).toMatchInlineSnapshot('"<time data-n-time data-locale=\\"en-US\\" data-month=\\"long\\" data-day=\\"numeric\\" datetime=\\"2023-02-11T08:24:08.396Z\\" data-test-fixed>February 11</time>"')
   })
 
   it('injects one script', async () => {
