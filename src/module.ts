@@ -8,7 +8,7 @@ export default defineNuxtModule<ModuleOptions>({
     configKey: 'time',
     name: 'nuxt-time',
   },
-  async setup (_options, nuxt) {
+  async setup() {
     const resolver = createResolver(import.meta.url)
 
     // Add <NuxtTime> component
