@@ -1,7 +1,4 @@
 <script setup>
-if (process.client) {
-  await new Promise(resolve => setTimeout(resolve, process.test ? 0 : 500))
-}
 const locale = ref()
 const switchLocale = () => {
   locale.value = locale.value !== 'fr' ? 'fr' : 'en-GB'
