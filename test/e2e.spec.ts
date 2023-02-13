@@ -37,15 +37,20 @@ describe('nuxt-time', async () => {
 
     await page.goto(url('/'), { waitUntil: 'networkidle' })
 
-    // expect(await page.getByTestId('switchable').innerText()).toMatchInlineSnapshot('"11 February at 8"')
-    // expect(await page.getByTestId('fixed').innerText()).toMatchInlineSnapshot('"11 February"')
+    expect(await page.getByTestId('switchable').innerText()).toMatchInlineSnapshot(
+      '"11 February at 8"'
+    )
+    expect(await page.getByTestId('fixed').innerText()).toMatchInlineSnapshot('"11 February"')
 
-    // await page.getByText('Switch locale').click()
-    // expect(await page.getByTestId('switchable').innerText()).toMatchInlineSnapshot('"11 février à 8"')
-    // expect(await page.getByTestId('fixed').innerText()).toMatchInlineSnapshot('"11 février"')
+    await page.getByText('Switch locale').click()
+    expect(await page.getByTestId('switchable').innerText()).toMatchInlineSnapshot(
+      '"11 février à 8"'
+    )
+    expect(await page.getByTestId('fixed').innerText()).toMatchInlineSnapshot('"11 février"')
 
-    // await page.getByText('Update time').click()
-    // expect(await page.getByTestId('fixed').innerText()).toMatchInlineSnapshot('"11 février"')
+    await page.getByText('Update time').click()
+    expect(await page.getByTestId('switchable').innerText()).not.toEqual('11 février à 8')
+    expect(await page.getByTestId('fixed').innerText()).toMatchInlineSnapshot('"11 février"')
 
     // No hydration errors
     expect(logs.join('')).toMatchInlineSnapshot('""')

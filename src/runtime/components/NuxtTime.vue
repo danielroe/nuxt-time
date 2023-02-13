@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-import { computed, getCurrentInstance, useHead } from '#imports'
+import { computed, getCurrentInstance, useNuxtApp, useHead } from '#imports'
 
 const props = withDefaults(defineProps<{
   locale?: string
@@ -32,10 +32,13 @@ const props = withDefaults(defineProps<{
 const renderedDate = getCurrentInstance()?.vnode.el?.getAttribute('datetime')
 const locale = getCurrentInstance()?.vnode.el?.getAttribute('data-locale')
 
+const nuxtApp = useNuxtApp()
+
 const date = computed(() => {
-  if (renderedDate) return new Date(renderedDate)
+  const date = props.datetime
+  if (renderedDate && nuxtApp.isHydrating) return new Date(renderedDate)
   if (!props.datetime) return new Date()
-  return new Date(props.datetime)
+  return new Date(date)
 })
 
 const formatter = computed(() => {
