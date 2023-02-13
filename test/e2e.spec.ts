@@ -49,6 +49,7 @@ describe('nuxt-time', async () => {
     expect(await page.getByTestId('fixed').innerText()).toMatchInlineSnapshot('"11 février"')
 
     await page.getByText('Update time').click()
+    expect(await page.getByTestId('switchable').innerText()).not.toEqual('11 février à 8')
     expect(await page.getByTestId('fixed').innerText()).toMatchInlineSnapshot('"11 février"')
 
     // No hydration errors
