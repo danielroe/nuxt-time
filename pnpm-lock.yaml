@@ -23,7 +23,7 @@ importers:
       get-port-please: 3.0.1
       husky: 8.0.3
       lint-staged: 13.1.2
-      magic-regexp: 0.6.2
+      magic-regexp: 0.6.3
       nuxt: 3.2.0
       nuxt-vitest: 0.6.6
       pathe: ^1.0.0
@@ -53,7 +53,7 @@ importers:
       get-port-please: 3.0.1
       husky: 8.0.3
       lint-staged: 13.1.2
-      magic-regexp: 0.6.2
+      magic-regexp: 0.6.3
       nuxt: 3.2.0_zro3vrnnfyw5fi3rgmsvqzdpce
       nuxt-vitest: 0.6.6_vite@4.1.4+vue@3.2.47
       pinst: 3.0.0
@@ -4667,11 +4667,11 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /magic-regexp/0.6.2:
-    resolution: {integrity: sha512-TU7mogmbA7W9YjGybLmCBJU6C2IGgLgRfr76ILmgWlM/fNGrYOxrZC9AeKzii/DCyFddgBB3t9B6BLzUHrxwxg==}
+  /magic-regexp/0.6.3:
+    resolution: {integrity: sha512-RQJGOUham95/bqe9KaaQDxSP5txZoySk1omZCY7ZiG6/mqRY1t0w8Mmv9TV3XE0VkAD84pjUXs8jFFNLIzf5ow==}
     dependencies:
       estree-walker: 3.0.3
-      magic-string: 0.27.0
+      magic-string: 0.30.0
       mlly: 1.1.0
       ufo: 1.0.1
       unplugin: 1.0.1
@@ -4688,6 +4688,13 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.14
+
+  /magic-string/0.30.0:
+    resolution: {integrity: sha512-LA+31JYDJLs82r2ScLrlz1GjSgu66ZV518eyWT+S8VhyQn/JL0u9MeBOvQMGYiPk1DBiSN9DDMOcXvigJZaViQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.4.14
+    dev: true
 
   /make-dir/3.1.0:
     resolution: {integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==}
