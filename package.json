@@ -67,7 +67,7 @@
     "get-port-please": "3.0.1",
     "husky": "8.0.3",
     "lint-staged": "13.1.2",
-    "magic-regexp": "0.6.2",
+    "magic-regexp": "0.6.3",
     "nuxt": "3.2.0",
     "nuxt-vitest": "0.6.6",
     "pinst": "3.0.0",
