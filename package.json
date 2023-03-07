@@ -61,7 +61,7 @@
     "@vitest/coverage-c8": "0.29.2",
     "bumpp": "9.0.0",
     "eslint": "8.35.0",
-    "eslint-config-prettier": "8.6.0",
+    "eslint-config-prettier": "8.7.0",
     "eslint-plugin-prettier": "4.2.1",
     "expect-type": "0.15.0",
     "get-port-please": "3.0.1",
