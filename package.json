@@ -81,7 +81,7 @@
   "resolutions": {
     "nuxt-time": "link:."
   },
-  "packageManager": "pnpm@7.29.1",
+  "packageManager": "pnpm@7.30.0",
   "volta": {
     "node": "18.15.0"
   }
