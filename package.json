@@ -57,7 +57,7 @@
     "@nuxt/schema": "3.3.1",
     "@nuxt/test-utils": "3.3.1",
     "@nuxtjs/eslint-config-typescript": "12.0.0",
-    "@types/node": "18.15.9",
+    "@types/node": "18.15.10",
     "@vitest/coverage-c8": "0.29.7",
     "bumpp": "9.0.0",
     "eslint": "8.36.0",
