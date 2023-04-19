@@ -41,7 +41,7 @@
     "prepack": "pnpm build",
     "prepare": "husky install",
     "prepublishOnly": "pnpm lint && pnpm test",
-    "release": "bumpp && npm publish",
+    "release": "bumpp && pnpm publish",
     "test": "vitest run",
     "test:types": "tsc --noEmit"
   },
