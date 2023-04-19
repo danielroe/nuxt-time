@@ -71,7 +71,7 @@
     "nuxt": "3.3.1",
     "nuxt-vitest": "0.6.9",
     "pinst": "3.0.0",
-    "playwright": "1.31.2",
+    "playwright": "1.32.3",
     "prettier": "2.8.7",
     "typescript": "5.0.4",
     "vite": "4.2.1",
