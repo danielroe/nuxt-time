@@ -40,12 +40,10 @@
     "lint:prettier": "prettier --write --loglevel warn",
     "prepack": "pnpm build",
     "prepare": "husky install",
-    "prepublishOnly": "pnpm lint && pnpm test && pinst --disable",
+    "prepublishOnly": "pnpm lint && pnpm test",
     "release": "bumpp && npm publish",
     "test": "vitest run",
-    "test:types": "tsc --noEmit",
-    "postinstall": "husky install",
-    "postpublish": "pinst --enable"
+    "test:types": "tsc --noEmit"
   },
   "dependencies": {
     "@nuxt/kit": "^3.2.0",
@@ -70,7 +68,6 @@
     "magic-regexp": "0.6.3",
     "nuxt": "3.4.1",
     "nuxt-vitest": "0.6.10",
-    "pinst": "3.0.0",
     "playwright": "1.32.3",
     "prettier": "2.8.7",
     "typescript": "5.0.4",

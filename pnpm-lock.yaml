@@ -68,9 +68,6 @@ importers:
       nuxt-vitest:
         specifier: 0.6.10
         version: 0.6.10(@vitejs/plugin-vue-jsx@3.0.1)(@vitejs/plugin-vue@4.1.0)(playwright@1.32.3)(rollup@3.20.6)(vite@4.2.1)(vue@3.2.47)
-      pinst:
-        specifier: 3.0.0
-        version: 3.0.0
       playwright:
         specifier: 1.32.3
         version: 1.32.3
@@ -5173,12 +5170,6 @@ packages:
   /pify@2.3.0:
     resolution: {integrity: sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==}
     engines: {node: '>=0.10.0'}
-    dev: true
-
-  /pinst@3.0.0:
-    resolution: {integrity: sha512-cengSmBxtCyaJqtRSvJorIIZXMXg+lJ3sIljGmtBGUVonMnMsVJbnzl6jGN1HkOWwxNuJynCJ2hXxxqCQrFDdw==}
-    engines: {node: '>=12.0.0'}
-    hasBin: true
     dev: true
 
   /pkg-types@1.0.2:
