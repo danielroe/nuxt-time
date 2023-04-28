@@ -67,10 +67,10 @@ importers:
         version: 3.4.1(@types/node@18.16.1)(eslint@8.39.0)(rollup@3.21.0)(typescript@5.0.4)
       nuxt-vitest:
         specifier: 0.6.10
-        version: 0.6.10(@vitejs/plugin-vue-jsx@3.0.1)(@vitejs/plugin-vue@4.1.0)(playwright@1.32.3)(rollup@3.21.0)(vite@4.3.3)(vue@3.2.47)
+        version: 0.6.10(@vitejs/plugin-vue-jsx@3.0.1)(@vitejs/plugin-vue@4.1.0)(playwright@1.33.0)(rollup@3.21.0)(vite@4.3.3)(vue@3.2.47)
       playwright:
-        specifier: 1.32.3
-        version: 1.32.3
+        specifier: 1.33.0
+        version: 1.33.0
       prettier:
         specifier: 2.8.8
         version: 2.8.8
@@ -82,7 +82,7 @@ importers:
         version: 4.3.3(@types/node@18.16.1)
       vitest:
         specifier: 0.30.1
-        version: 0.30.1(@vitest/ui@0.30.1)(playwright@1.32.3)
+        version: 0.30.1(@vitest/ui@0.30.1)(playwright@1.33.0)
       vue:
         specifier: 3.2.47
         version: 3.2.47
@@ -1423,7 +1423,7 @@ packages:
       c8: 7.13.0
       picocolors: 1.0.0
       std-env: 3.3.2
-      vitest: 0.30.1(@vitest/ui@0.30.1)(playwright@1.32.3)
+      vitest: 0.30.1(@vitest/ui@0.30.1)(playwright@1.33.0)
     dev: true
 
   /@vitest/expect@0.30.1:
@@ -4816,7 +4816,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /nuxt-vitest@0.6.10(@vitejs/plugin-vue-jsx@3.0.1)(@vitejs/plugin-vue@4.1.0)(playwright@1.32.3)(rollup@3.21.0)(vite@4.3.3)(vue@3.2.47):
+  /nuxt-vitest@0.6.10(@vitejs/plugin-vue-jsx@3.0.1)(@vitejs/plugin-vue@4.1.0)(playwright@1.33.0)(rollup@3.21.0)(vite@4.3.3)(vue@3.2.47):
     resolution: {integrity: sha512-jkAx07lfLghk7Ca4yPkkWOodgH17verEXqCmps8UyDC3qDkFcxIJiJ8BImVz26XtYl0ONBFL0LqjIFKni9hDNw==}
     peerDependencies:
       '@vitejs/plugin-vue': '*'
@@ -4831,7 +4831,7 @@ packages:
       perfect-debounce: 0.1.3
       std-env: 3.3.2
       vite: 4.3.3(@types/node@18.16.1)
-      vitest: 0.30.1(@vitest/ui@0.30.1)(playwright@1.32.3)
+      vitest: 0.30.1(@vitest/ui@0.30.1)(playwright@1.33.0)
       vitest-environment-nuxt: 0.6.10(rollup@3.21.0)(vitest@0.30.1)(vue@3.2.47)
     transitivePeerDependencies:
       - '@edge-runtime/vm'
@@ -5206,19 +5206,19 @@ packages:
       mlly: 1.2.0
       pathe: 1.1.0
 
-  /playwright-core@1.32.3:
-    resolution: {integrity: sha512-SB+cdrnu74ZIn5Ogh/8278ngEh9NEEV0vR4sJFmK04h2iZpybfbqBY0bX6+BLYWVdV12JLLI+JEFtSnYgR+mWg==}
+  /playwright-core@1.33.0:
+    resolution: {integrity: sha512-aizyPE1Cj62vAECdph1iaMILpT0WUDCq3E6rW6I+dleSbBoGbktvJtzS6VHkZ4DKNEOG9qJpiom/ZxO+S15LAw==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
 
-  /playwright@1.32.3:
-    resolution: {integrity: sha512-h/ylpgoj6l/EjkfUDyx8cdOlfzC96itPpPe8BXacFkqpw/YsuxkpPyVbzEq4jw+bAJh5FLgh31Ljg2cR6HV3uw==}
+  /playwright@1.33.0:
+    resolution: {integrity: sha512-+zzU3V2TslRX2ETBRgQKsKytYBkJeLZ2xzUj4JohnZnxQnivoUvOvNbRBYWSYykQTO0Y4zb8NwZTYFUO+EpPBQ==}
     engines: {node: '>=14'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      playwright-core: 1.32.3
+      playwright-core: 1.33.0
     dev: true
 
   /pluralize@8.0.0:
@@ -6800,14 +6800,14 @@ packages:
       magic-string: 0.30.0
       ofetch: 1.0.1
       unenv: 1.4.1
-      vitest: 0.30.1(@vitest/ui@0.30.1)(playwright@1.32.3)
+      vitest: 0.30.1(@vitest/ui@0.30.1)(playwright@1.33.0)
       vue: 3.2.47
     transitivePeerDependencies:
       - rollup
       - supports-color
     dev: true
 
-  /vitest@0.30.1(@vitest/ui@0.30.1)(playwright@1.32.3):
+  /vitest@0.30.1(@vitest/ui@0.30.1)(playwright@1.33.0):
     resolution: {integrity: sha512-y35WTrSTlTxfMLttgQk4rHcaDkbHQwDP++SNwPb+7H8yb13Q3cu2EixrtHzF27iZ8v0XCciSsLg00RkPAzB/aA==}
     engines: {node: '>=v14.18.0'}
     hasBin: true
@@ -6857,7 +6857,7 @@ packages:
       magic-string: 0.30.0
       pathe: 1.1.0
       picocolors: 1.0.0
-      playwright: 1.32.3
+      playwright: 1.33.0
       source-map: 0.6.1
       std-env: 3.3.2
       strip-literal: 1.0.1
