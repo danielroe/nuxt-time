@@ -66,8 +66,8 @@ importers:
         specifier: 3.4.1
         version: 3.4.1(@types/node@18.16.3)(eslint@8.39.0)(rollup@3.21.0)(typescript@5.0.4)
       nuxt-vitest:
-        specifier: 0.6.10
-        version: 0.6.10(@vitejs/plugin-vue-jsx@3.0.1)(@vitejs/plugin-vue@4.1.0)(playwright@1.33.0)(rollup@3.21.0)(vite@4.3.3)(vue@3.2.47)
+        specifier: 0.6.12
+        version: 0.6.12(@vitejs/plugin-vue-jsx@3.0.1)(@vitejs/plugin-vue@4.1.0)(playwright@1.33.0)(rollup@3.21.0)(vite@4.3.3)(vue@3.2.47)
       playwright:
         specifier: 1.33.0
         version: 1.33.0
@@ -3627,8 +3627,8 @@ packages:
       uncrypto: 0.1.2
     dev: true
 
-  /happy-dom@9.8.4:
-    resolution: {integrity: sha512-IB2glIailsAloOmTfRRQfpA3aW/bbhpdw9wX1CKvDrmj8tMVtdabjM+579YLdHpBXVyOku+p07+aea7TdnGnyw==}
+  /happy-dom@9.10.8:
+    resolution: {integrity: sha512-zcRFDygyTxigkglFyFA/Gim1H36bIdYdWkI28kC1bLG5Kk/Ad8MnVzT+XzaUhMRAhd7SfZrizCQueS8mjf6tDw==}
     dependencies:
       css.escape: 1.5.1
       he: 1.2.0
@@ -4816,8 +4816,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /nuxt-vitest@0.6.10(@vitejs/plugin-vue-jsx@3.0.1)(@vitejs/plugin-vue@4.1.0)(playwright@1.33.0)(rollup@3.21.0)(vite@4.3.3)(vue@3.2.47):
-    resolution: {integrity: sha512-jkAx07lfLghk7Ca4yPkkWOodgH17verEXqCmps8UyDC3qDkFcxIJiJ8BImVz26XtYl0ONBFL0LqjIFKni9hDNw==}
+  /nuxt-vitest@0.6.12(@vitejs/plugin-vue-jsx@3.0.1)(@vitejs/plugin-vue@4.1.0)(playwright@1.33.0)(rollup@3.21.0)(vite@4.3.3)(vue@3.2.47):
+    resolution: {integrity: sha512-WDGucS11nrb0z5UZjiYYYb9QDJFU/z5WefcXBHcV1pE/k0nz0e035L3PTAQ//F3QT7dmT9a0Dkqhn0XOYleJ4A==}
     peerDependencies:
       '@vitejs/plugin-vue': '*'
       '@vitejs/plugin-vue-jsx': '*'
@@ -4832,7 +4832,7 @@ packages:
       std-env: 3.3.2
       vite: 4.3.3(@types/node@18.16.3)
       vitest: 0.30.1(@vitest/ui@0.30.1)(playwright@1.33.0)
-      vitest-environment-nuxt: 0.6.10(rollup@3.21.0)(vitest@0.30.1)(vue@3.2.47)
+      vitest-environment-nuxt: 0.6.12(rollup@3.21.0)(vitest@0.30.1)(vue@3.2.47)
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
@@ -6786,8 +6786,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitest-environment-nuxt@0.6.10(rollup@3.21.0)(vitest@0.30.1)(vue@3.2.47):
-    resolution: {integrity: sha512-22BvkJnLVDuMH65Rst3iLkUl69fKO9g7n5Ax2GDsl8NWZae7n9rRAGqVk2M5f5pRHdkhTyNGiChyvpYA8j2gCQ==}
+  /vitest-environment-nuxt@0.6.12(rollup@3.21.0)(vitest@0.30.1)(vue@3.2.47):
+    resolution: {integrity: sha512-H7F8/ZLZQ6qyFUMWq7HP3d26C7zOI3anc6e4Iou0JWOV6lcGORaezEX+OzDX6AnrIZkpMQ19E6tIbv/UBrtOvw==}
     peerDependencies:
       vitest: ^0.24.5 || ^0.26.0 || ^0.27.0 || ^0.28.0 || ^0.29.0 || ^0.30.0
       vue: ^3.2.45
@@ -6796,7 +6796,7 @@ packages:
       '@vue/test-utils': 2.2.10(vue@3.2.47)
       estree-walker: 3.0.3
       h3: 1.6.4
-      happy-dom: 9.8.4
+      happy-dom: 9.10.8
       magic-string: 0.30.0
       ofetch: 1.0.1
       unenv: 1.4.1
