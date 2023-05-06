@@ -76,7 +76,8 @@
     "vue": "3.2.47"
   },
   "resolutions": {
-    "nuxt-time": "link:."
+    "nuxt-time": "link:.",
+    "@nuxt/kit": "^3.4.3"
   },
   "packageManager": "pnpm@8.4.0",
   "volta": {
