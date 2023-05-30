@@ -73,7 +73,7 @@
     "typescript": "5.0.4",
     "vite": "4.3.9",
     "vitest": "0.31.1",
-    "vue": "3.2.47"
+    "vue": "3.3.4"
   },
   "resolutions": {
     "nuxt-time": "link:.",
