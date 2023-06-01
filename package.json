@@ -67,7 +67,7 @@
     "lint-staged": "13.2.2",
     "magic-regexp": "0.6.3",
     "nuxt": "3.4.3",
-    "nuxt-vitest": "0.7.1",
+    "nuxt-vitest": "0.8.2",
     "playwright": "1.34.3",
     "prettier": "2.8.8",
     "typescript": "5.0.4",
