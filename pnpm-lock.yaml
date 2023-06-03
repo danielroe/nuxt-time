@@ -71,8 +71,8 @@ importers:
         specifier: 3.4.3
         version: 3.4.3(@types/node@18.16.16)(eslint@8.41.0)(rollup@3.21.0)(typescript@5.0.4)
       nuxt-vitest:
-        specifier: 0.8.2
-        version: 0.8.2(@vitejs/plugin-vue-jsx@3.0.1)(@vitejs/plugin-vue@4.2.1)(rollup@3.21.0)(vite@4.3.9)(vitest@0.31.4)(vue-router@4.1.6)(vue@3.2.47)
+        specifier: 0.8.4
+        version: 0.8.4(@vitejs/plugin-vue-jsx@3.0.1)(@vitejs/plugin-vue@4.2.1)(rollup@3.21.0)(vite@4.3.9)(vitest@0.31.4)(vue-router@4.1.6)(vue@3.2.47)
       playwright:
         specifier: 1.34.3
         version: 1.34.3
@@ -4860,8 +4860,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /nuxt-vitest@0.8.2(@vitejs/plugin-vue-jsx@3.0.1)(@vitejs/plugin-vue@4.2.1)(rollup@3.21.0)(vite@4.3.9)(vitest@0.31.4)(vue-router@4.1.6)(vue@3.2.47):
-    resolution: {integrity: sha512-b0CRx6EwTbI0si/10Fdnb5tLcDEOdVdh7NEQ6ysbkNVU0eBNpxqHQeDffcj1vGSvbgZzwf/CRMoVjzrHaY/wTQ==}
+  /nuxt-vitest@0.8.4(@vitejs/plugin-vue-jsx@3.0.1)(@vitejs/plugin-vue@4.2.1)(rollup@3.21.0)(vite@4.3.9)(vitest@0.31.4)(vue-router@4.1.6)(vue@3.2.47):
+    resolution: {integrity: sha512-hQRCcnhv6zVwSJRIrmhkjWsAAETIn2lws9gbbmMd+3uV2jGeIME7YqhOvrb5DWrgCH+yD5dvb+7fwUKS96klxw==}
     peerDependencies:
       '@vitejs/plugin-vue': '*'
       '@vitejs/plugin-vue-jsx': '*'
@@ -4878,7 +4878,7 @@ packages:
       std-env: 3.3.3
       vite: 4.3.9(@types/node@18.16.16)
       vitest: 0.31.4(playwright@1.34.3)
-      vitest-environment-nuxt: 0.8.2(rollup@3.21.0)(vitest@0.31.4)(vue-router@4.1.6)(vue@3.2.47)
+      vitest-environment-nuxt: 0.8.4(rollup@3.21.0)(vitest@0.31.4)(vue-router@4.1.6)(vue@3.2.47)
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -6827,8 +6827,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitest-environment-nuxt@0.8.2(rollup@3.21.0)(vitest@0.31.4)(vue-router@4.1.6)(vue@3.2.47):
-    resolution: {integrity: sha512-TjlBzA+3DZr9A0CgjJKV0yFC3uiBK1QIe7Px7bN928qTyiu4zfb/Kye3omic/x6GVO6aMIeJS6ZL+iBQFtOkIg==}
+  /vitest-environment-nuxt@0.8.4(rollup@3.21.0)(vitest@0.31.4)(vue-router@4.1.6)(vue@3.2.47):
+    resolution: {integrity: sha512-HhVavbnxrvP8dmsU4Z7W9P439hlbzZ4j8/6sMIu59j9XOIH1f9npYIpSPeQ875Nec5hbcFJr+zDHxwUIBWh50A==}
     peerDependencies:
       vitest: ^0.24.5 || ^0.26.0 || ^0.27.0 || ^0.28.0 || ^0.29.0 || ^0.30.0
       vue: ^3.2.45
