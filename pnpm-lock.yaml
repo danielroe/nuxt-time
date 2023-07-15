@@ -59,7 +59,7 @@ importers:
         specifier: 3.0.1
         version: 3.0.1
       happy-dom:
-        specifier: ^10.3.2
+        specifier: 10.3.2
         version: 10.3.2
       husky:
         specifier: 8.0.3
