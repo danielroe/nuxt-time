@@ -69,7 +69,7 @@
     "magic-regexp": "0.6.3",
     "nuxt": "3.6.2",
     "nuxt-vitest": "0.9.0",
-    "playwright": "1.36.0",
+    "playwright": "1.36.1",
     "prettier": "3.0.0",
     "typescript": "5.1.6",
     "vite": "4.4.4",
