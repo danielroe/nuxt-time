@@ -1,6 +1,6 @@
 {
   "name": "nuxt-time",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "description": "Safely render local dates and times on the server with Nuxt 3",
   "repository": "danielroe/nuxt-time",
