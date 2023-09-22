@@ -28,7 +28,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "pnpm dev:prepare && nuxt-module-build",
+    "build": "pnpm dev:prepare && nuxt-module-build && esbuild --minify src/script.ts --outfile=dist/script.min.js",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "pnpm nuxt-module-build --stub && nuxi prepare playground",
