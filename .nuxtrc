@@ -1,2 +1,2 @@
 typescript.includeWorkspace=true
-modules[]=nuxt-vitest
+modules[]=@nuxt/test-utils/module
