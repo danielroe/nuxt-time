@@ -41,7 +41,7 @@ importers:
         specifier: 0.34.6
         version: 0.34.6(vitest@1.0.4)
       '@vue/test-utils':
-        specifier: ^2.4.3
+        specifier: 2.4.3
         version: 2.4.3(vue@3.3.11)
       bumpp:
         specifier: 9.2.0
@@ -92,7 +92,7 @@ importers:
         specifier: 1.0.4
         version: 1.0.4(@types/node@20.10.4)(happy-dom@10.11.2)
       vitest-environment-nuxt:
-        specifier: ^1.0.0-alpha.1
+        specifier: 1.0.0-alpha.1
         version: 1.0.0-alpha.1(@vue/test-utils@2.4.3)(h3@1.9.0)(happy-dom@10.11.2)(rollup@3.29.4)(vite@4.4.11)(vitest@1.0.4)(vue-router@4.2.5)(vue@3.3.11)
       vue:
         specifier: ^3.3.11
