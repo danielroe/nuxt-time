@@ -70,7 +70,7 @@
     "lint-staged": "15.2.0",
     "magic-regexp": "0.6.3",
     "nuxt": "3.8.2",
-    "playwright": "1.37.1",
+    "playwright": "1.40.1",
     "prettier": "3.1.0",
     "typescript": "5.1.6",
     "vite": "4.4.11",
