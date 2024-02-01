@@ -88,5 +88,5 @@ if (process.server) {
 </script>
 
 <template>
-  <time data-n-time v-bind="dataset" :datetime="isoDate" >{{ formattedDate }}</time>
+  <time data-n-time v-bind="dataset" :datetime="isoDate">{{ formattedDate }}</time>
 </template>
