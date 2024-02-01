@@ -21,7 +21,7 @@ describe('nuxt-time', async () => {
   it('injects one script', async () => {
     const html = await $fetch('/')
 
-    const string = createRegExp("document.querySelectorAll('[data-n-time]')", 'g')
+    const string = createRegExp("document.querySelectorAll('[data-n-time]')", ['g'])
     expect(html.match(string)?.length).toEqual(1)
   })
 
