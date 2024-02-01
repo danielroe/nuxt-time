@@ -73,7 +73,7 @@
     "playwright": "1.40.1",
     "prettier": "3.1.0",
     "typescript": "5.1.6",
-    "vite": "4.4.11",
+    "vite": "5.0.12",
     "vitest": "1.0.4",
     "vitest-environment-nuxt": "1.0.0",
     "vue": "^3.3.11"
