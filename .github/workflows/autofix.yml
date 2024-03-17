@@ -27,7 +27,7 @@ jobs:
         run: pnpm dev:prepare
 
       - name: 🔠 Fix lint errors
-        run: pnpm run lint
+        run: pnpm run lint --fix
 
       - name: 🧪 Update snapshots
         run: pnpm test -u
