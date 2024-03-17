@@ -1,7 +1,9 @@
 // @vitest-environment nuxt
 import { describe, expect, it } from 'vitest'
+import { defineComponent, h } from 'vue'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
-import NuxtTime from '../src/runtime/components/NuxtTime.vue'
+
+import { NuxtTime } from '#components'
 
 describe('<NuxtTime>', () => {
   it('should not serialise data in the DOM in the client', async () => {
