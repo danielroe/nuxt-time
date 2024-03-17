@@ -1,6 +1,5 @@
 <script setup lang='ts'>
 import { computed, getCurrentInstance, useNuxtApp, useHead } from '#imports'
-// @ts-expect-error virtual file
 import scriptContents from '#build/nuxt-time-script.mjs'
 
 const props = withDefaults(defineProps<{
