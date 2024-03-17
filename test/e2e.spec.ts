@@ -1,7 +1,7 @@
 import { fileURLToPath } from 'node:url'
 import { describe, it, expect } from 'vitest'
 import { setup, $fetch, createPage, url } from '@nuxt/test-utils/e2e'
-import { createRegExp } from 'magic-regexp'
+import { anyOf, createRegExp, exactly } from 'magic-regexp'
 
 await setup({
   server: true,
@@ -21,7 +21,7 @@ describe('nuxt-time', async () => {
   it('injects one script', async () => {
     const html = await $fetch('/')
 
-    const string = createRegExp("document.querySelectorAll('[data-n-time]')", ['g'])
+    const string = createRegExp(exactly("document.querySelectorAll(").and(anyOf('"', "'")).and('[data-n-time]'), ['g'])
     expect(html.match(string)?.length).toEqual(1)
   })
 
