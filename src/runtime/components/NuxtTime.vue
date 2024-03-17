@@ -61,6 +61,7 @@ if (process.server) {
   useHead({
     script: [{
       tagPosition: 'bodyClose',
+      tagPriority: -20,
       key: 'nuxt-time',
       innerHTML: `
         document.querySelectorAll('[data-n-time]').forEach(el => {
