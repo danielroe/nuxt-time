@@ -60,6 +60,7 @@
     "@vitest/coverage-v8": "0.34.6",
     "@vue/test-utils": "2.4.4",
     "bumpp": "9.2.1",
+    "esbuild": "^0.20.2",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-prettier": "5.1.3",
