@@ -52,7 +52,7 @@ const isoDate = computed(() => date.value.toISOString())
 
 const dataset: Record<string, any> = {}
 
-if (process.server) {
+if (import.meta.server) {
   for (const prop in props) {
     if (prop !== 'datetime') {
       const propInKebabCase = prop.split(/(?=[A-Z])/).join('-')
