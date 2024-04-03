@@ -22,10 +22,7 @@
 Install and add `nuxt-time` to your `nuxt.config`.
 
 ```bash
-# Whichever matches your package manager
-pnpm add -D nuxt-time
-npm install -D nuxt-time
-yarn add -D nuxt-time
+npx nuxi@latest module add time
 ```
 
 ```js
