@@ -57,7 +57,7 @@
     "@vue/test-utils": "2.4.5",
     "bumpp": "9.4.0",
     "esbuild": "0.20.2",
-    "eslint": "8.57.0",
+    "eslint": "9.0.0",
     "expect-type": "0.18.0",
     "get-port-please": "3.1.2",
     "happy-dom": "14.1.0",
