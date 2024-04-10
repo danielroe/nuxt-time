@@ -1,6 +1,8 @@
-document.querySelectorAll('[data-n-time]').forEach(el => {
+document.querySelectorAll('[data-n-time]').forEach((el) => {
   const toCamelCase = (name, index) => {
-    if (index > 0) { return name[0].toUpperCase() + name.slice(1) }
+    if (index > 0) {
+      return name[0].toUpperCase() + name.slice(1)
+    }
     return name
   }
 

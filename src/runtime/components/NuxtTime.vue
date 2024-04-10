@@ -27,12 +27,12 @@ const props = withDefaults(defineProps<{
   timeStyle?: 'full' | 'long' | 'medium' | 'short'
   hourCycle?: 'h11' | 'h12' | 'h23' | 'h24'
 }>(), {
-  hour12: undefined
+  hour12: undefined,
 })
 
 const el = getCurrentInstance()?.vnode.el
 const renderedDate = el?.getAttribute('datetime')
-const locale = el?.getAttribute('data-locale')
+const _locale = el?.getAttribute('data-locale')
 
 const nuxtApp = useNuxtApp()
 
@@ -45,12 +45,12 @@ const date = computed(() => {
 
 const formatter = computed(() => {
   const { locale: propsLocale, ...rest } = props
-  return new Intl.DateTimeFormat(locale ?? propsLocale, rest)
+  return new Intl.DateTimeFormat(_locale ?? propsLocale, rest)
 })
 const formattedDate = computed(() => formatter.value.format(date.value))
 const isoDate = computed(() => date.value.toISOString())
 
-const dataset: Record<string, any> = {}
+const dataset: Record<string, string | number | boolean | Date | undefined> = {}
 
 if (import.meta.server) {
   for (const prop in props) {
@@ -64,12 +64,16 @@ if (import.meta.server) {
       tagPosition: 'bodyClose',
       tagPriority: -20,
       key: 'nuxt-time',
-      innerHTML: scriptContents
-    }]
+      innerHTML: scriptContents,
+    }],
   })
 }
 </script>
 
 <template>
-  <time data-n-time v-bind="dataset" :datetime="isoDate">{{ formattedDate }}</time>
+  <time
+    data-n-time
+    v-bind="dataset"
+    :datetime="isoDate"
+  >{{ formattedDate }}</time>
 </template>

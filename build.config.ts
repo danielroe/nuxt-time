@@ -7,7 +7,7 @@ export default defineBuildConfig({
   rollup: { emitCJS: true },
   externals: ['node:url'],
   hooks: {
-    async 'build:done' () {
+    async 'build:done'() {
       const script = await fsp.readFile('./src/script.mjs', 'utf-8')
       const { code } = await transform(script, {
         loader: 'js',
@@ -15,6 +15,6 @@ export default defineBuildConfig({
         minify: true,
       })
       await fsp.writeFile('./dist/script.mjs', code, 'utf-8')
-    }
-  }
+    },
+  },
 })
