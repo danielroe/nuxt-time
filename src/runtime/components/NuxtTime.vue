@@ -27,7 +27,7 @@ const props = withDefaults(defineProps<{
   timeStyle?: 'full' | 'long' | 'medium' | 'short'
   hourCycle?: 'h11' | 'h12' | 'h23' | 'h24'
 }>(), {
-  hour12: undefined
+  hour12: undefined,
 })
 
 const el = getCurrentInstance()?.vnode.el
@@ -64,12 +64,16 @@ if (import.meta.server) {
       tagPosition: 'bodyClose',
       tagPriority: -20,
       key: 'nuxt-time',
-      innerHTML: scriptContents
-    }]
+      innerHTML: scriptContents,
+    }],
   })
 }
 </script>
 
 <template>
-  <time data-n-time v-bind="dataset" :datetime="isoDate">{{ formattedDate }}</time>
+  <time
+    data-n-time
+    v-bind="dataset"
+    :datetime="isoDate"
+  >{{ formattedDate }}</time>
 </template>

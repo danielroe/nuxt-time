@@ -5,9 +5,9 @@ export default defineVitestConfig({
     environmentOptions: {
       nuxt: {
         overrides: {
-          modules: ['nuxt-time']
-        }
-      }
+          modules: ['nuxt-time'],
+        },
+      },
     },
     coverage: {
       reporter: ['text', 'json'],

@@ -14,14 +14,14 @@ describe('nuxt-time', async () => {
     const html = await $fetch('/')
     const snap = html.match(/<time[^>]*data-testid="fixed"[^>]*>([^<]*)<\/time>/)?.[0]
     expect(snap).toContain(
-      '<time data-n-time data-month="long" data-day="numeric" datetime="2023-02-11T08:24:08.396Z" data-testid="fixed">'
+      '<time data-n-time data-month="long" data-day="numeric" datetime="2023-02-11T08:24:08.396Z" data-testid="fixed">',
     )
   })
 
   it('injects one script', async () => {
     const html = await $fetch('/')
 
-    const string = createRegExp(exactly("document.querySelectorAll(").and(anyOf('"', "'")).and('[data-n-time]'), ['g'])
+    const string = createRegExp(exactly('document.querySelectorAll(').and(anyOf('"', '\'')).and('[data-n-time]'), ['g'])
     expect(html.match(string)?.length).toEqual(1)
   })
 
@@ -29,7 +29,7 @@ describe('nuxt-time', async () => {
     const page = await createPage(undefined, { locale: 'en-GB' })
     const logs: string[] = []
 
-    page.on('console', event => {
+    page.on('console', (event) => {
       if (!event.text().includes('<Suspense>')) {
         logs.push(event.text())
       }
@@ -38,13 +38,13 @@ describe('nuxt-time', async () => {
     await page.goto(url('/'), { waitUntil: 'networkidle' })
 
     expect(await page.getByTestId('switchable').innerText()).toMatchInlineSnapshot(
-      '"11 February at 8"'
+      '"11 February at 8"',
     )
     expect(await page.getByTestId('fixed').innerText()).toMatchInlineSnapshot('"11 February"')
 
     await page.getByText('Switch locale').click()
     expect(await page.getByTestId('switchable').innerText()).toMatchInlineSnapshot(
-      '"11 février à 8"'
+      '"11 février à 8"',
     )
     expect(await page.getByTestId('fixed').innerText()).toMatchInlineSnapshot('"11 février"')
 
