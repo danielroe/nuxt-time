@@ -1,5 +1,4 @@
-import { promises as fsp } from 'node:fs'
-import { defineNuxtModule, createResolver, addComponentsDir, addTemplate } from '@nuxt/kit'
+import { defineNuxtModule, createResolver, addComponentsDir } from '@nuxt/kit'
 
 export interface ModuleOptions {}
 
@@ -13,14 +12,5 @@ export default defineNuxtModule<ModuleOptions>({
 
     // Add <NuxtTime> component
     addComponentsDir({ path: resolver.resolve('./runtime/components') })
-
-    const script = await fsp.readFile(resolver.resolve('./script.mjs'), 'utf-8')
-
-    addTemplate({
-      filename: 'nuxt-time-script.mjs',
-      getContents() {
-        return `export default ${JSON.stringify(script.trim())}`
-      },
-    })
   },
 })
