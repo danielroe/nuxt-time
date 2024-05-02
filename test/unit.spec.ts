@@ -20,7 +20,7 @@ describe('<NuxtTime>', () => {
       }),
     )
     expect(thing.html()).toMatchInlineSnapshot(
-      `"<time data-n-time="" datetime="2023-02-11T18:26:41.058Z">11 February at 41</time>"`,
+      `"<time datetime="2023-02-11T18:26:41.058Z">11 February at 41</time>"`,
     )
   })
 })

@@ -12,16 +12,16 @@ await setup({
 describe('nuxt-time', async () => {
   it('ssr', async () => {
     const html = await $fetch('/')
-    const snap = html.match(/<time[^>]*data-testid="fixed"[^>]*>([^<]*)<\/time>/)?.[0]
+    const snap = html.match(/<time[^>]*data-testid="fixed"[^>]*>([^<]*)<\/time>/)?.[0].replace(/ data-prehydrate-id="[^"]*"/g, '')
     expect(snap).toContain(
-      '<time data-n-time data-month="long" data-day="numeric" datetime="2023-02-11T08:24:08.396Z" data-testid="fixed">',
+      '<time data-month="long" data-day="numeric" datetime="2023-02-11T08:24:08.396Z" data-testid="fixed">',
     )
   })
 
   it('injects one script', async () => {
     const html = await $fetch('/')
 
-    const string = createRegExp(exactly('document.querySelectorAll(').and(anyOf('"', '\'')).and('[data-n-time]'), ['g'])
+    const string = createRegExp(exactly('document.querySelectorAll'), ['g'])
     expect(html.match(string)?.length).toEqual(1)
   })
 
