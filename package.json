@@ -79,5 +79,5 @@
     "@nuxt/kit": "3.11.0",
     "nuxt-time": "link:."
   },
-  "packageManager": "pnpm@9.0.5"
+  "packageManager": "pnpm@9.0.6"
 }
