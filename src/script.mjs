@@ -24,14 +24,18 @@ document.querySelectorAll('[data-n-time]').forEach((el) => {
     const formatter = new Intl.RelativeTimeFormat(options.locale, options)
     if (Math.abs(diffInSeconds) < 60) {
       el.textContent = formatter.format(Math.round(diffInSeconds), 'second')
-    } else if (Math.abs(diffInMinutes) < 60) {
+    }
+    else if (Math.abs(diffInMinutes) < 60) {
       el.textContent = formatter.format(Math.round(diffInMinutes), 'minute')
-    } else if (Math.abs(diffInHours) < 24) {
+    }
+    else if (Math.abs(diffInHours) < 24) {
       el.textContent = formatter.format(Math.round(diffInHours), 'hour')
-    } else {
+    }
+    else {
       el.textContent = formatter.format(Math.round(diffInDays), 'day')
     }
-  } else {
+  }
+  else {
     const formatter = new Intl.DateTimeFormat(options.locale, options)
     el.textContent = formatter.format(date)
   }
