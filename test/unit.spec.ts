@@ -1,4 +1,3 @@
-// @vitest-environment nuxt
 import { describe, expect, it } from 'vitest'
 import { defineComponent, h } from 'vue'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
@@ -21,6 +20,21 @@ describe('<NuxtTime>', () => {
     )
     expect(thing.html()).toMatchInlineSnapshot(
       `"<time data-n-time="" datetime="2023-02-11T18:26:41.058Z">11 February at 41</time>"`,
+    )
+  })
+
+  it('should display relative time correctly', async () => {
+    const thing = await mountSuspended(
+      defineComponent({
+        render: () =>
+          h(NuxtTime, {
+            datetime: Date.now() - 5 * 60 * 1000,
+            relative: true,
+          }),
+      }),
+    )
+    expect(thing.html()).toMatchInlineSnapshot(
+      `"<time data-n-time="" datetime="${new Date(Date.now() - 5 * 60 * 1000).toISOString()}">5 minutes ago</time>"`,
     )
   })
 })

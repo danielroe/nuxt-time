@@ -15,6 +15,24 @@ document.querySelectorAll('[data-n-time]').forEach((el) => {
     }
   }
 
-  const formatter = new Intl.DateTimeFormat(options.locale, options)
-  el.textContent = formatter.format(date)
+  if (options.relative) {
+    const now = new Date()
+    const diffInSeconds = (date.getTime() - now.getTime()) / 1000
+    const diffInMinutes = diffInSeconds / 60
+    const diffInHours = diffInMinutes / 60
+    const diffInDays = diffInHours / 24
+    const formatter = new Intl.RelativeTimeFormat(options.locale, options)
+    if (Math.abs(diffInSeconds) < 60) {
+      el.textContent = formatter.format(Math.round(diffInSeconds), 'second')
+    } else if (Math.abs(diffInMinutes) < 60) {
+      el.textContent = formatter.format(Math.round(diffInMinutes), 'minute')
+    } else if (Math.abs(diffInHours) < 24) {
+      el.textContent = formatter.format(Math.round(diffInHours), 'hour')
+    } else {
+      el.textContent = formatter.format(Math.round(diffInDays), 'day')
+    }
+  } else {
+    const formatter = new Intl.DateTimeFormat(options.locale, options)
+    el.textContent = formatter.format(date)
+  }
 })

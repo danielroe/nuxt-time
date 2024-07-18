@@ -26,6 +26,7 @@ const props = withDefaults(defineProps<{
   dateStyle?: 'full' | 'long' | 'medium' | 'short'
   timeStyle?: 'full' | 'long' | 'medium' | 'short'
   hourCycle?: 'h11' | 'h12' | 'h23' | 'h24'
+  relative?: boolean
 }>(), {
   hour12: undefined,
 })
@@ -44,10 +45,33 @@ const date = computed(() => {
 })
 
 const formatter = computed(() => {
-  const { locale: propsLocale, ...rest } = props
+  const { locale: propsLocale, relative, ...rest } = props
+  if (relative) {
+    return new Intl.RelativeTimeFormat(_locale ?? propsLocale, rest)
+  }
   return new Intl.DateTimeFormat(_locale ?? propsLocale, rest)
 })
-const formattedDate = computed(() => formatter.value.format(date.value))
+
+const formattedDate = computed(() => {
+  if (props.relative) {
+    const now = new Date()
+    const diffInSeconds = (date.value.getTime() - now.getTime()) / 1000
+    const diffInMinutes = diffInSeconds / 60
+    const diffInHours = diffInMinutes / 60
+    const diffInDays = diffInHours / 24
+    if (Math.abs(diffInSeconds) < 60) {
+      return formatter.value.format(Math.round(diffInSeconds), 'second')
+    } else if (Math.abs(diffInMinutes) < 60) {
+      return formatter.value.format(Math.round(diffInMinutes), 'minute')
+    } else if (Math.abs(diffInHours) < 24) {
+      return formatter.value.format(Math.round(diffInHours), 'hour')
+    } else {
+      return formatter.value.format(Math.round(diffInDays), 'day')
+    }
+  }
+  return formatter.value.format(date.value)
+})
+
 const isoDate = computed(() => date.value.toISOString())
 
 const dataset: Record<string, string | number | boolean | Date | undefined> = {}

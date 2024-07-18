@@ -48,6 +48,19 @@ It accepts `datetime` and `locale` (optional) properties, along with any propert
 </template>
 ```
 
+## Relative Time Formatting
+
+Nuxt Time also supports relative time formatting using the `Intl.RelativeTimeFormat` API. You can enable this feature by setting the `relative` prop to `true`.
+
+```vue
+<template>
+  <!--
+    This will display the time relative to the current time, e.g., "5 minutes ago"
+  -->
+  <NuxtTime :datetime="Date.now() - 5 * 60 * 1000" relative />
+</template>
+```
+
 ## 💻 Development
 
 - Clone this repository

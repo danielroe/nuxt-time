@@ -55,4 +55,25 @@ describe('nuxt-time', async () => {
     // No hydration errors
     expect(logs.join('')).toMatchInlineSnapshot('""')
   })
+
+  it('displays relative time correctly', async () => {
+    const page = await createPage(undefined, { locale: 'en-GB' })
+    await page.goto(url('/'), { waitUntil: 'networkidle' })
+
+    const relativeTime = await page.evaluate(() => {
+      const now = new Date()
+      const fiveMinutesAgo = new Date(now.getTime() - 5 * 60 * 1000)
+      return fiveMinutesAgo.toISOString()
+    })
+
+    const relativeTimeElement = await page.evaluate((relativeTime) => {
+      const el = document.createElement('nuxt-time')
+      el.setAttribute('datetime', relativeTime)
+      el.setAttribute('relative', 'true')
+      document.body.appendChild(el)
+      return el.textContent
+    }, relativeTime)
+
+    expect(relativeTimeElement).toMatchInlineSnapshot('"5 minutes ago"')
+  })
 })
