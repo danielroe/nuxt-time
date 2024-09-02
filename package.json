@@ -71,7 +71,7 @@
     "typescript": "5.4.5",
     "vite": "5.1.6",
     "vitest": "2.0.4",
-    "vitest-environment-nuxt": "1.0.0",
+    "vitest-environment-nuxt": "1.0.1",
     "vue": "3.4.21",
     "@nuxt/eslint-config": "0.3.13"
   },
