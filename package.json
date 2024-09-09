@@ -64,7 +64,7 @@
     "get-port-please": "3.1.2",
     "happy-dom": "14.12.3",
     "husky": "9.1.5",
-    "lint-staged": "15.2.7",
+    "lint-staged": "15.2.10",
     "magic-regexp": "0.8.0",
     "nuxt": "3.11.0",
     "playwright": "1.42.1",
