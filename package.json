@@ -54,30 +54,30 @@
     "@nuxt/module-builder": "0.6.0",
     "@nuxt/schema": "3.11.0",
     "@nuxt/test-utils": "3.12.0",
-    "@types/node": "20.14.14",
+    "@types/node": "20.16.5",
     "@vitest/coverage-v8": "2.0.5",
     "@vue/test-utils": "2.4.6",
     "bumpp": "9.5.2",
     "esbuild": "0.23.1",
     "eslint": "9.10.0",
-    "expect-type": "0.19.0",
+    "expect-type": "0.20.0",
     "get-port-please": "3.1.2",
     "happy-dom": "14.12.3",
-    "husky": "9.1.5",
+    "husky": "9.1.6",
     "lint-staged": "15.2.10",
     "magic-regexp": "0.8.0",
     "nuxt": "3.11.0",
-    "playwright": "1.42.1",
-    "typescript": "5.4.5",
+    "playwright": "1.47.1",
+    "typescript": "5.6.2",
     "vite": "5.1.6",
     "vitest": "2.0.5",
     "vitest-environment-nuxt": "1.0.1",
     "vue": "3.4.21",
-    "@nuxt/eslint-config": "0.3.13"
+    "@nuxt/eslint-config": "0.5.7"
   },
   "resolutions": {
     "@nuxt/kit": "3.11.0",
     "nuxt-time": "link:."
   },
-  "packageManager": "pnpm@9.0.6"
+  "packageManager": "pnpm@9.10.0"
 }
