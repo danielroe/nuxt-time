@@ -1,6 +1,7 @@
 import { promises as fsp } from 'node:fs'
 import { defineNuxtModule, createResolver, addComponentsDir, addTemplate } from '@nuxt/kit'
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface ModuleOptions {}
 
 export default defineNuxtModule<ModuleOptions>({
