@@ -81,8 +81,11 @@ const dataset: Record<string, string | number | boolean | Date | undefined> = {}
 if (import.meta.server) {
   for (const prop in props) {
     if (prop !== 'datetime') {
-      const propInKebabCase = prop.split(/(?=[A-Z])/).join('-')
-      dataset[`data-${propInKebabCase}`] = props?.[prop as keyof typeof props]
+      const value = props?.[prop as keyof typeof props]
+      if (value) {
+        const propInKebabCase = prop.split(/(?=[A-Z])/).join('-')
+        dataset[`data-${propInKebabCase}`] = props?.[prop as keyof typeof props]
+      }
     }
   }
   onPrehydrate((el) => {

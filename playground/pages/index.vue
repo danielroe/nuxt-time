@@ -42,6 +42,12 @@ const changeDate = () => {
       time-zone="America/New_York"
     />
     <br>
+    <NuxtTime
+      data-testid="relative"
+      :datetime="Date.now() - (5 * 60 * 1000)"
+      relative
+    />
+    <br>
     <button @click="switchLocale">
       Switch locale
     </button>
