@@ -23,4 +23,20 @@ describe('<NuxtTime>', () => {
       `"<time datetime="2023-02-11T18:26:41.058Z">11 February at 41</time>"`,
     )
   })
+
+  it('should display relative time correctly', async () => {
+    const datetime = Date.now() - 5 * 60 * 1000
+    const thing = await mountSuspended(
+      defineComponent({
+        render: () =>
+          h(NuxtTime, {
+            datetime,
+            relative: true,
+          }),
+      }),
+    )
+    expect(thing.html()).toMatchInlineSnapshot(
+      `"<time datetime="${new Date(datetime).toISOString()}">5 minutes ago</time>"`,
+    )
+  })
 })

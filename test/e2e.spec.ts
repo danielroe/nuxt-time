@@ -55,4 +55,26 @@ describe('nuxt-time', async () => {
     // No hydration errors
     expect(logs.join('')).toMatchInlineSnapshot('""')
   })
+
+  it('displays relative time correctly', async () => {
+    const page = await createPage(undefined, { locale: 'en-GB' })
+    const logs: string[] = []
+
+    page.on('console', (event) => {
+      if (!event.text().includes('<Suspense>')) {
+        logs.push(event.text())
+      }
+    })
+
+    await page.goto(url('/'), { waitUntil: 'networkidle' })
+
+    expect(await page.getByTestId('relative').textContent()).toMatchInlineSnapshot(
+      '"30 seconds ago"',
+    )
+
+    await page.getByTestId('relative').getByText('32 seconds ago').textContent()
+
+    // No hydration errors
+    expect(logs.join('')).toMatchInlineSnapshot('""')
+  })
 })
