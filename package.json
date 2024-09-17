@@ -39,7 +39,7 @@
     "docs:build": "nuxi generate docs",
     "lint": "eslint .",
     "prepack": "pnpm build",
-    "prepare": "husky install",
+    "prepare": "husky",
     "prepublishOnly": "pnpm lint && pnpm test",
     "release": "bumpp && pnpm publish",
     "test": "vitest run",
