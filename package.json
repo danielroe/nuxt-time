@@ -59,7 +59,6 @@
     "@vitest/coverage-v8": "2.1.1",
     "@vue/test-utils": "2.4.6",
     "bumpp": "9.5.2",
-    "esbuild": "0.23.1",
     "eslint": "9.10.0",
     "expect-type": "0.20.0",
     "get-port-please": "3.1.2",
