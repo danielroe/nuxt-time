@@ -1,6 +1,5 @@
 <script setup lang='ts'>
-import { computed, getCurrentInstance, useNuxtApp, useHead } from '#imports'
-import scriptContents from '#build/nuxt-time-script.mjs'
+import { computed, getCurrentInstance, onPrehydrate, useNuxtApp } from '#imports'
 
 const props = withDefaults(defineProps<{
   locale?: string
@@ -86,20 +85,54 @@ if (import.meta.server) {
       dataset[`data-${propInKebabCase}`] = props?.[prop as keyof typeof props]
     }
   }
-  useHead({
-    script: [{
-      tagPosition: 'bodyClose',
-      tagPriority: -20,
-      key: 'nuxt-time',
-      innerHTML: scriptContents,
-    }],
+  onPrehydrate((el) => {
+    const toCamelCase = (name: string, index: number) => {
+      if (index > 0) {
+        return name[0].toUpperCase() + name.slice(1)
+      }
+      return name
+    }
+
+    const date = new Date(el.getAttribute('datetime')!)
+    const options: Intl.DateTimeFormatOptions & { locale?: Intl.LocalesArgument } = {}
+    for (const name of el.getAttributeNames()) {
+      if (name.startsWith('data-')) {
+        const optionName = name.slice(5).split('-').map(toCamelCase).join('') as keyof Intl.DateTimeFormatOptions
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        options[optionName] = el.getAttribute(name) as any
+      }
+    }
+
+    if (options.relative) {
+      const now = new Date()
+      const diffInSeconds = (date.getTime() - now.getTime()) / 1000
+      const diffInMinutes = diffInSeconds / 60
+      const diffInHours = diffInMinutes / 60
+      const diffInDays = diffInHours / 24
+      const formatter = new Intl.RelativeTimeFormat(options.locale, options)
+      if (Math.abs(diffInSeconds) < 60) {
+        el.textContent = formatter.format(Math.round(diffInSeconds), 'second')
+      }
+      else if (Math.abs(diffInMinutes) < 60) {
+        el.textContent = formatter.format(Math.round(diffInMinutes), 'minute')
+      }
+      else if (Math.abs(diffInHours) < 24) {
+        el.textContent = formatter.format(Math.round(diffInHours), 'hour')
+      }
+      else {
+        el.textContent = formatter.format(Math.round(diffInDays), 'day')
+      }
+    }
+    else {
+      const formatter = new Intl.DateTimeFormat(options.locale, options)
+      el.textContent = formatter.format(date)
+    }
   })
 }
 </script>
 
 <template>
   <time
-    data-n-time
     v-bind="dataset"
     :datetime="isoDate"
   >{{ formattedDate }}</time>
