@@ -44,7 +44,7 @@ const changeDate = () => {
     <br>
     <NuxtTime
       data-testid="relative"
-      :datetime="Date.now() - (5 * 60 * 1000)"
+      :datetime="Date.now() - (1 * 30 * 1000)"
       relative
     />
     <br>

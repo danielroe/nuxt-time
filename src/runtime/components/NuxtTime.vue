@@ -43,6 +43,15 @@ const date = computed(() => {
   return new Date(date)
 })
 
+const now = ref(import.meta.client && nuxtApp.isHydrating && window._nuxtTimeNow ? new Date(window._nuxtTimeNow) : new Date())
+if (import.meta.client && props.relative) {
+  const handler = () => {
+    now.value = new Date()
+  }
+  const interval = setInterval(handler, 1000)
+  onBeforeUnmount(() => clearInterval(interval))
+}
+
 const formatter = computed(() => {
   const { locale: propsLocale, relative, ...rest } = props
   if (relative) {
@@ -53,7 +62,7 @@ const formatter = computed(() => {
 
 const formattedDate = computed(() => {
   if (props.relative) {
-    const diffInSeconds = (date.value.getTime() - Date.now()) / 1000
+    const diffInSeconds = (date.value.getTime() - now.value.getTime()) / 1000
     const units = [
       { unit: 'second', value: diffInSeconds },
       { unit: 'minute', value: diffInSeconds / 60 },
@@ -84,6 +93,7 @@ if (import.meta.server) {
     }
   }
   onPrehydrate((el) => {
+    const now = window._nuxtTimeNow = window._nuxtTimeNow || Date.now()
     const toCamelCase = (name: string, index: number) => {
       if (index > 0) {
         return name[0].toUpperCase() + name.slice(1)
@@ -102,7 +112,7 @@ if (import.meta.server) {
     }
 
     if (options.relative) {
-      const diffInSeconds = (date.getTime() - Date.now()) / 1000
+      const diffInSeconds = (date.getTime() - now) / 1000
       const units = [
         { unit: 'second', value: diffInSeconds },
         { unit: 'minute', value: diffInSeconds / 60 },
@@ -120,6 +130,12 @@ if (import.meta.server) {
       el.textContent = formatter.format(date)
     }
   })
+}
+
+declare global {
+  interface Window {
+    _nuxtTimeNow?: number
+  }
 }
 </script>
 
