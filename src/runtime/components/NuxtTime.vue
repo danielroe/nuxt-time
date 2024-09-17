@@ -53,25 +53,20 @@ const formatter = computed(() => {
 
 const formattedDate = computed(() => {
   if (props.relative) {
-    const now = new Date()
-    const diffInSeconds = (date.value.getTime() - now.getTime()) / 1000
-    const diffInMinutes = diffInSeconds / 60
-    const diffInHours = diffInMinutes / 60
-    const diffInDays = diffInHours / 24
-    if (Math.abs(diffInSeconds) < 60) {
-      return formatter.value.format(Math.round(diffInSeconds), 'second')
-    }
-    else if (Math.abs(diffInMinutes) < 60) {
-      return formatter.value.format(Math.round(diffInMinutes), 'minute')
-    }
-    else if (Math.abs(diffInHours) < 24) {
-      return formatter.value.format(Math.round(diffInHours), 'hour')
-    }
-    else {
-      return formatter.value.format(Math.round(diffInDays), 'day')
-    }
+    const diffInSeconds = (date.value.getTime() - Date.now()) / 1000
+    const units = [
+      { unit: 'second', value: diffInSeconds },
+      { unit: 'minute', value: diffInSeconds / 60 },
+      { unit: 'hour', value: diffInSeconds / 3600 },
+      { unit: 'day', value: diffInSeconds / 86400 },
+      { unit: 'month', value: diffInSeconds / 2592000 },
+      { unit: 'year', value: diffInSeconds / 31536000 },
+    ] as const
+    const { unit, value } = units.find(({ value }) => Math.abs(value) < 60) || units[units.length - 1]
+    return formatter.value.format(Math.round(value), unit)
   }
-  return formatter.value.format(date.value)
+
+  return (formatter.value as Intl.DateTimeFormat).format(date.value)
 })
 
 const isoDate = computed(() => date.value.toISOString())
@@ -97,7 +92,7 @@ if (import.meta.server) {
     }
 
     const date = new Date(el.getAttribute('datetime')!)
-    const options: Intl.DateTimeFormatOptions & { locale?: Intl.LocalesArgument } = {}
+    const options: Intl.DateTimeFormatOptions & { locale?: Intl.LocalesArgument, relative?: boolean } = {}
     for (const name of el.getAttributeNames()) {
       if (name.startsWith('data-')) {
         const optionName = name.slice(5).split('-').map(toCamelCase).join('') as keyof Intl.DateTimeFormatOptions
@@ -107,24 +102,18 @@ if (import.meta.server) {
     }
 
     if (options.relative) {
-      const now = new Date()
-      const diffInSeconds = (date.getTime() - now.getTime()) / 1000
-      const diffInMinutes = diffInSeconds / 60
-      const diffInHours = diffInMinutes / 60
-      const diffInDays = diffInHours / 24
+      const diffInSeconds = (date.getTime() - Date.now()) / 1000
+      const units = [
+        { unit: 'second', value: diffInSeconds },
+        { unit: 'minute', value: diffInSeconds / 60 },
+        { unit: 'hour', value: diffInSeconds / 3600 },
+        { unit: 'day', value: diffInSeconds / 86400 },
+        { unit: 'month', value: diffInSeconds / 2592000 },
+        { unit: 'year', value: diffInSeconds / 31536000 },
+      ] as const
       const formatter = new Intl.RelativeTimeFormat(options.locale, options)
-      if (Math.abs(diffInSeconds) < 60) {
-        el.textContent = formatter.format(Math.round(diffInSeconds), 'second')
-      }
-      else if (Math.abs(diffInMinutes) < 60) {
-        el.textContent = formatter.format(Math.round(diffInMinutes), 'minute')
-      }
-      else if (Math.abs(diffInHours) < 24) {
-        el.textContent = formatter.format(Math.round(diffInHours), 'hour')
-      }
-      else {
-        el.textContent = formatter.format(Math.round(diffInDays), 'day')
-      }
+      const { unit, value } = units.find(({ value }) => Math.abs(value) < 60) || units[units.length - 1]
+      el.textContent = formatter.format(Math.round(value), unit)
     }
     else {
       const formatter = new Intl.DateTimeFormat(options.locale, options)
