@@ -7,6 +7,9 @@ export default defineNuxtModule<ModuleOptions>({
   meta: {
     configKey: 'time',
     name: 'nuxt-time',
+    compatibility: {
+      nuxt: '>=3.12.0',
+    },
   },
   async setup() {
     const resolver = createResolver(import.meta.url)
