@@ -5,7 +5,7 @@
 [![Github Actions][github-actions-src]][github-actions-href]
 [![Codecov][codecov-src]][codecov-href]
 
-> SSR-safe time element for [Nuxt 3](https://nuxt.com)
+> SSR-safe time element for [Nuxt](https://nuxt.com)
 
 - [✨ &nbsp;Changelog](https://github.com/danielroe/nuxt-time/blob/main/CHANGELOG.md)
 - [▶️ &nbsp;Online playground](https://stackblitz.com/github/danielroe/nuxt-time/tree/main/playground)

@@ -2,7 +2,7 @@
   "name": "nuxt-time",
   "version": "0.1.3",
   "license": "MIT",
-  "description": "Safely render local dates and times on the server with Nuxt 3",
+  "description": "Safely render local dates and times on the server with Nuxt",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/danielroe/nuxt-time.git"
