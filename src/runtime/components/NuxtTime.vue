@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-import { computed, getCurrentInstance, onPrehydrate, useNuxtApp } from '#imports'
+import { computed, getCurrentInstance, onBeforeUnmount, onPrehydrate, ref, useNuxtApp } from '#imports'
 
 const props = withDefaults(defineProps<{
   locale?: string
