@@ -67,7 +67,7 @@
     "lint-staged": "15.2.10",
     "magic-regexp": "0.8.0",
     "nuxt": "3.13.2",
-    "playwright": "1.47.1",
+    "playwright": "1.47.2",
     "typescript": "5.6.2",
     "vite": "5.2.14",
     "vitest": "2.1.1",
@@ -82,5 +82,5 @@
     "@nuxt/kit": "3.13.2",
     "nuxt-time": "link:."
   },
-  "packageManager": "pnpm@9.10.0"
+  "packageManager": "pnpm@9.11.0"
 }
