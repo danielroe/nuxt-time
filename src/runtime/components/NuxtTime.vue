@@ -63,15 +63,15 @@ const formatter = computed(() => {
 const formattedDate = computed(() => {
   if (props.relative) {
     const diffInSeconds = (date.value.getTime() - now.value.getTime()) / 1000
-    const units = [
+    const units: Array<{ unit: Intl.RelativeTimeFormatUnit, value: number }> = [
       { unit: 'second', value: diffInSeconds },
       { unit: 'minute', value: diffInSeconds / 60 },
       { unit: 'hour', value: diffInSeconds / 3600 },
       { unit: 'day', value: diffInSeconds / 86400 },
       { unit: 'month', value: diffInSeconds / 2592000 },
       { unit: 'year', value: diffInSeconds / 31536000 },
-    ] as const
-    const { unit, value } = units.find(({ value }) => Math.abs(value) < 60) || units[units.length - 1]
+    ]
+    const { unit, value } = units.find(({ value }) => Math.abs(value) < 60) || units[units.length - 1]!
     return formatter.value.format(Math.round(value), unit)
   }
 
@@ -96,7 +96,7 @@ if (import.meta.server) {
     const now = window._nuxtTimeNow = window._nuxtTimeNow || Date.now()
     const toCamelCase = (name: string, index: number) => {
       if (index > 0) {
-        return name[0].toUpperCase() + name.slice(1)
+        return name[0]!.toUpperCase() + name.slice(1)
       }
       return name
     }
@@ -113,17 +113,16 @@ if (import.meta.server) {
 
     if (options.relative) {
       const diffInSeconds = (date.getTime() - now) / 1000
-      const units = [
+      const units: Array<{ unit: Intl.RelativeTimeFormatUnit, value: number }> = [
         { unit: 'second', value: diffInSeconds },
         { unit: 'minute', value: diffInSeconds / 60 },
         { unit: 'hour', value: diffInSeconds / 3600 },
         { unit: 'day', value: diffInSeconds / 86400 },
         { unit: 'month', value: diffInSeconds / 2592000 },
         { unit: 'year', value: diffInSeconds / 31536000 },
-      ] as const
-      const formatter = new Intl.RelativeTimeFormat(options.locale, options)
-      const { unit, value } = units.find(({ value }) => Math.abs(value) < 60) || units[units.length - 1]
-      el.textContent = formatter.format(Math.round(value), unit)
+      ]
+      const { unit, value } = units.find(({ value }) => Math.abs(value) < 60) || units[units.length - 1]!
+      el.textContent = formatter.value.format(Math.round(value), unit)
     }
     else {
       const formatter = new Intl.DateTimeFormat(options.locale, options)

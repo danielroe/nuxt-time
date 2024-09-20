@@ -1,2 +1,3 @@
 typescript.includeWorkspace=true
 modules[]=@nuxt/test-utils/module
+typescript.tsConfig.compilerOptions.noUncheckedIndexedAccess=true

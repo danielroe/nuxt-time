@@ -43,7 +43,7 @@
     "prepublishOnly": "pnpm lint && pnpm test",
     "release": "bumpp && pnpm publish",
     "test": "vitest run",
-    "test:types": "tsc --noEmit"
+    "test:types": "vue-tsc --noEmit"
   },
   "dependencies": {
     "@nuxt/kit": "^3.13.2",
@@ -72,7 +72,8 @@
     "vite": "5.2.14",
     "vitest": "2.1.1",
     "vitest-environment-nuxt": "1.0.1",
-    "vue": "3.5.6"
+    "vue": "3.5.6",
+    "vue-tsc": "^2.1.6"
   },
   "peerDependencies": {
     "nuxt": ">=3.12.0"
