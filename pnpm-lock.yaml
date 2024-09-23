@@ -89,7 +89,7 @@ importers:
         specifier: 3.5.6
         version: 3.5.6(typescript@5.6.2)
       vue-tsc:
-        specifier: ^2.1.6
+        specifier: 2.1.6
         version: 2.1.6(typescript@5.6.2)
 
   playground:
