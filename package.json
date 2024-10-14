@@ -42,7 +42,7 @@
     "prepare": "husky",
     "prepublishOnly": "pnpm lint && pnpm test",
     "release": "bumpp && pnpm publish",
-    "test": "vitest run",
+    "test": "vitest run --coverage",
     "test:types": "vue-tsc --noEmit"
   },
   "dependencies": {
