@@ -82,4 +82,5 @@ jobs:
         run: pnpm build
 
       - name: 🟩 Coverage
+        if: matrix.os != 'windows-latest'
         uses: codecov/codecov-action@v4
