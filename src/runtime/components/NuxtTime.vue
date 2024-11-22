@@ -122,7 +122,8 @@ if (import.meta.server) {
         { unit: 'year', value: diffInSeconds / 31536000 },
       ]
       const { unit, value } = units.find(({ value }) => Math.abs(value) < 60) || units[units.length - 1]!
-      el.textContent = formatter.value.format(Math.round(value), unit)
+      const formatter = new Intl.RelativeTimeFormat(options.locale, options)
+      el.textContent = formatter.format(Math.round(value), unit)
     }
     else {
       const formatter = new Intl.DateTimeFormat(options.locale, options)
