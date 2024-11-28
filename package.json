@@ -62,7 +62,7 @@
     "eslint": "9.15.0",
     "expect-type": "1.1.0",
     "get-port-please": "3.1.2",
-    "happy-dom": "15.11.6",
+    "happy-dom": "15.11.7",
     "husky": "9.1.6",
     "lint-staged": "15.2.10",
     "magic-regexp": "0.8.0",
