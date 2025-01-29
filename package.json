@@ -61,7 +61,7 @@
     "knip": "5.38.2",
     "lint-staged": "15.2.10",
     "magic-regexp": "0.8.0",
-    "nuxt": "3.15.3",
+    "nuxt": "3.15.4",
     "playwright": "1.48.2",
     "simple-git-hooks": "2.11.1",
     "typescript": "5.6.3",
@@ -74,8 +74,8 @@
     "nuxt": ">=3.12.0"
   },
   "resolutions": {
-    "@nuxt/kit": "3.15.3",
-    "@nuxt/schema": "3.15.3",
+    "@nuxt/kit": "3.15.4",
+    "@nuxt/schema": "3.15.4",
     "nuxt-time": "link:.",
     "vue": "3.5.13"
   },
