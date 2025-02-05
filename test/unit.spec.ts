@@ -39,4 +39,38 @@ describe('<NuxtTime>', () => {
       `"<time datetime="${new Date(datetime).toISOString()}">5 minutes ago</time>"`,
     )
   })
+
+  it('should display datetime in title', async () => {
+    const datetime = Date.now() - 5 * 60 * 1000
+    const thing = await mountSuspended(
+      defineComponent({
+        render: () =>
+          h(NuxtTime, {
+            datetime,
+            relative: true,
+            title: true,
+          }),
+      }),
+    )
+    expect(thing.html()).toMatchInlineSnapshot(
+      `"<time datetime="${new Date(datetime).toISOString()}" title="${new Date(datetime).toISOString()}">5 minutes ago</time>"`,
+    )
+  })
+
+  it('should display custom title', async () => {
+    const datetime = Date.now() - 5 * 60 * 1000
+    const thing = await mountSuspended(
+      defineComponent({
+        render: () =>
+          h(NuxtTime, {
+            datetime,
+            relative: true,
+            title: 'test',
+          }),
+      }),
+    )
+    expect(thing.html()).toMatchInlineSnapshot(
+      `"<time datetime="${new Date(datetime).toISOString()}" title="test">5 minutes ago</time>"`,
+    )
+  })
 })
