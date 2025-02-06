@@ -26,6 +26,7 @@ const props = withDefaults(defineProps<{
   timeStyle?: 'full' | 'long' | 'medium' | 'short'
   hourCycle?: 'h11' | 'h12' | 'h23' | 'h24'
   relative?: boolean
+  title?: boolean | string
 }>(), {
   hour12: undefined,
 })
@@ -79,7 +80,7 @@ const formattedDate = computed(() => {
 })
 
 const isoDate = computed(() => date.value.toISOString())
-
+const title = computed(() => props.title === true ? isoDate.value : typeof props.title === 'string' ? props.title : undefined)
 const dataset: Record<string, string | number | boolean | Date | undefined> = {}
 
 if (import.meta.server) {
@@ -143,5 +144,6 @@ declare global {
   <time
     v-bind="dataset"
     :datetime="isoDate"
+    :title="title"
   >{{ formattedDate }}</time>
 </template>
