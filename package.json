@@ -56,7 +56,7 @@
     "@vue/test-utils": "2.4.6",
     "bumpp": "10.0.1",
     "changelogithub": "13.12.1",
-    "eslint": "9.19.0",
+    "eslint": "9.20.0",
     "happy-dom": "16.8.1",
     "knip": "5.38.2",
     "lint-staged": "15.2.10",
