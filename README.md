@@ -1,5 +1,8 @@
 # Nuxt Time
 
+> [!IMPORTANT]
+> This module is no longer necessary as `<NuxtTime>` is built into Nuxt from v3.17 onwards.
+
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![Github Actions][github-actions-src]][github-actions-href]
